@@ -1,0 +1,14 @@
+footer{
+    background-color: lightslategray;
+    color: white;
+    height: 10vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+   
+
+}
+
+h4{
+    margin-top: 20px;
+}
