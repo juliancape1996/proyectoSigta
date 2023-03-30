@@ -95,7 +95,7 @@ export const updateAsignacion= async(req,res)=>{
         const [ result] = await con.query('UPDATE asignacion SET id_profesor=?,id_estudiante=?,id_aula=?,id_competencia=?,id_materia=?,horario=?,completado=? WHERE id_asignacion=?',[id_profesor,id_estudiante,id_aula,id_competencia,id_materia,horario,completado,id_asignacion]);
         if (result.affectedRows <= 0) {
             return res.status(404).json({
-                message:'Asignacion no encontrada'
+                message:'Asignacion no fue encontrada'
             });
         }
 
