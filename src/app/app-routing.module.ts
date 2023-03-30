@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AgregarAsignacionesComponent } from './asignaciones/agregar-asignaciones/agregar-asignaciones.component';
-import { EditarAsignacionesComponent } from './asignaciones/editar-asignaciones/editar-asignaciones.component';
 import { EliminarAsignacionesComponent } from './asignaciones/eliminar-asignaciones/eliminar-asignaciones.component';
 import { ListarAsignacionesComponent } from './asignaciones/listar-asignaciones/listar-asignaciones.component';
 import { AgregarAulasComponent } from './aulas/agregar-aulas/agregar-aulas.component';
@@ -29,6 +28,10 @@ import { ListarProfesorComponent } from './profesores/listar-profesor/listar-pro
 
 
 const routes: Routes = [
+  {
+    path:'',
+    component:ListarAsignacionesComponent
+  },  
   {
     path:'estudiantes',
     children:[
@@ -85,7 +88,6 @@ const routes: Routes = [
       {path:'',component:ListarAsignacionesComponent},
       {path:'lista', component: ListarAsignacionesComponent},
       {path:'agregar', component: AgregarAsignacionesComponent},
-      {path:'editar/:id', component: EditarAsignacionesComponent},
       {path:'eliminar/:id', component: EliminarAsignacionesComponent}
     ]
   }

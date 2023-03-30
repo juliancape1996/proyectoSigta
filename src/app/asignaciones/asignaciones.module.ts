@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { EliminarAsignacionesComponent } from './eliminar-asignaciones/eliminar-asignaciones.component';
 import { ListarAsignacionesComponent } from './listar-asignaciones/listar-asignaciones.component';
 import { AgregarAsignacionesComponent } from './agregar-asignaciones/agregar-asignaciones.component';
-import { EditarAsignacionesComponent } from './editar-asignaciones/editar-asignaciones.component';
-
 
 
 import { ReactiveFormsModule } from '@angular/forms';
@@ -16,7 +14,6 @@ import { RouterModule } from '@angular/router';
     EliminarAsignacionesComponent,
     ListarAsignacionesComponent,
     AgregarAsignacionesComponent,
-    EditarAsignacionesComponent
   ],
   imports: [
     CommonModule,
