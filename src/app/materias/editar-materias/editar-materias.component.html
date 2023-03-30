@@ -1,0 +1,30 @@
+
+<div class="container" *ngIf="dataLoaded">
+    <h1>Editar Materia</h1>
+    <div class="row ">
+        <form class="formulario"  [formGroup]="editarMateriaForm" (submit)="actualizarMateria()" >
+            <div class="mb-3 ">
+                <label class="form-label">Nombre de la Materia</label>
+                <input type="text" class="form-control" formControlName="nombre_de_materia">
+                <span [hidden]="editarMateriaForm.pristine">
+                    <div *ngIf="editarMateriaForm.controls['nombre_de_materia'].errors && editarMateriaForm.controls['nombre_de_materia'].hasError('required')"
+                        class="alert alert-danger mt-1" role="alert">
+                        Ingrese el Nombre de la materia
+                    </div>
+                </span>
+            </div>
+            <div class="mb-3">
+
+                <label class="form-label">Descripcion </label>
+                <input type="text" class="form-control" formControlName="descripcion">
+                <span [hidden]="editarMateriaForm.pristine">
+                    <div *ngIf="editarMateriaForm.controls['descripcion'].errors && editarMateriaForm.controls['descripcion'].hasError('required')"
+                        class="alert alert-danger mt-1" role="alert">
+                        Ingrese una descripcion de la materia
+                    </div>
+                </span>
+            </div>
+            <button [disabled]="editarMateriaForm.invalid" type="submit" class="btn btn-primary">Actualizar Materia</button>
+        </form>
+    </div>
+</div>

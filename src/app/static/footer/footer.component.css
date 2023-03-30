@@ -1,8 +1,7 @@
 footer{
     background-color: lightslategray;
     color: white;
-    height: 10vh;
-    margin: 0;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
    

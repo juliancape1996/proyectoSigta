@@ -1,0 +1,46 @@
+
+<div class="container" *ngIf="dataLoaded">
+    <h1>Editar Profesor</h1>
+    <div class="row ">
+        <form class="formulario"  [formGroup]="editarProfesorForm" (submit)="actualizarProfesor()" >
+            <div class="mb-3 ">
+                <label class="form-label">Nombre Profesor</label>
+                <input type="text" class="form-control"formControlName="nombre_profesor" >
+                <span [hidden]="editarProfesorForm.pristine">
+                <div *ngIf="editarProfesorForm.controls['nombre_profesor'].errors" class="alert alert-danger mt-1"  role="alert">
+                    Ingrese el nombre del profesor
+                </div>
+                </span>
+            </div>
+            <div class="mb-3">
+                <label  class="form-label">Correo </label>
+                <input type="email" class="form-control" formControlName="correo_electronico">
+                <span [hidden]="editarProfesorForm.pristine">
+                <div *ngIf="editarProfesorForm.controls['correo_electronico'].errors && editarProfesorForm.controls['correo_electronico'].hasError('required')" class="alert alert-danger mt-1"  role="alert">
+                    Ingrese el Correo
+                </div>
+                <div *ngIf="editarProfesorForm.controls['correo_electronico'].errors && editarProfesorForm.controls['correo_electronico'].hasError('email')" class="alert alert-danger mt-1"  role="alert">
+                    El formato del correo es invalido
+                </div>
+            </span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Telefono</label>
+                <input type="text" class="form-control" formControlName="telefono">
+                <span [hidden]="editarProfesorForm.pristine">
+                <div *ngIf="editarProfesorForm.controls['telefono'].errors && editarProfesorForm.controls['telefono'].hasError('required')" class="alert alert-danger mt-1"  role="alert">
+                    Ingrese el Numero de telefono
+                </div>
+                <div *ngIf="editarProfesorForm.controls['telefono'].errors && editarProfesorForm.controls['telefono'].hasError('maxlength')" class="alert alert-danger mt-1"  role="alert">
+                    El numero de telefono no puede tener mas de 10 digitos 
+                </div>
+            </span>
+            </div>
+            <div class="mb-3">
+                <label  class="form-label">Direccion</label>
+                <input type="text" class="form-control" formControlName="direccion">
+            </div>
+            <button [disabled]="editarProfesorForm.invalid" type="submit" class="btn btn-primary">Actualizar Profesor</button>
+        </form>
+    </div>
+</div>

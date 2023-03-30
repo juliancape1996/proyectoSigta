@@ -1,0 +1,20 @@
+<h1>Lista de estudiantes</h1>
+<div class="container">
+    <a href="/estudiantes/agregar " class="btn btn-success">Agregar Estudiante</a>
+<div class="row ">
+    <div class="col-sm-3 mx-2 my-3" style="text-align: center;" *ngFor=" let estudiante of listaEstudiantes">
+        <div class="card "  style="width: 18rem;">
+        <div class="card-body text-center">
+            <h5 class="card-title">{{estudiante.nombre_estudiante}}</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">{{estudiante.correo_electronico}}</h6>
+            <p class="card-text">{{estudiante.telefono}}</p>
+            <p class="card-text">{{estudiante.direccion}}</p>
+            <a href="/estudiantes/editar/{{estudiante.id_estudiante}}" class="btn btn-warning mx-2 imagen-edit"><img src="../../../assets/editar.png" height="30px"> <br>Editar</a>
+            <a [routerLink]="['/estudiantes/eliminar/',estudiante.id_estudiante]" style="color:black" class="btn btn-danger"><img src="../../../assets/24397ac9b79941a69d928c622d4ea10eRUPHpvRxnb59XB8k-0.png" height="30px"> <br>Eliminar</a>
+        </div>
+    </div>
+    </div>
+    </div>
+</div>
+
+

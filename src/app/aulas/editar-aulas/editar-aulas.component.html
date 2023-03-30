@@ -1,0 +1,39 @@
+
+<div class="container" *ngIf="dataLoaded">
+    <h1>Editar Aulas</h1>
+    <div class="row ">
+        <form class="formulario"  [formGroup]="editarAulaeForm" (submit)="actualizarAula()" >
+            <div class="mb-3 ">
+                <label class="form-label">Numero de Aula</label>
+                <input type="number" class="form-control"formControlName="numero_de_aula" >
+                <span [hidden]="editarAulaeForm.pristine">
+                    <div *ngIf="editarAulaeForm.controls['numero_de_aula'].errors && editarAulaeForm.controls['numero_de_aula'].hasError('required')"
+                        class="alert alert-danger mt-1" role="alert">
+                        Ingrese el numero del salón
+                    </div>
+                </span>
+            </div>
+            <div class="mb-3">
+                <label  class="form-label">Capacidad </label>
+                <input type="number" class="form-control" formControlName="capacidad">
+                <span [hidden]="editarAulaeForm.pristine">
+                    <div *ngIf="editarAulaeForm.controls['capacidad'].errors && editarAulaeForm.controls['capacidad'].hasError('required')"
+                        class="alert alert-danger mt-1" role="alert">
+                        Ingrese la capacidad de estudiantes del salón
+                    </div>
+                </span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Ubicacion</label>
+                <input type="text" class="form-control" formControlName="ubicacion">
+                <span [hidden]="editarAulaeForm.pristine">
+                    <div *ngIf="editarAulaeForm.controls['ubicacion'].errors && editarAulaeForm.controls['ubicacion'].hasError('required')"
+                        class="alert alert-danger mt-1" role="alert">
+                        Ingrese la hubicacion del salón
+                    </div>
+                </span>
+            </div>
+            <button [disabled]="editarAulaeForm.invalid" type="submit" class="btn btn-primary">Actualizar Aula</button>
+        </form>
+    </div>
+</div>

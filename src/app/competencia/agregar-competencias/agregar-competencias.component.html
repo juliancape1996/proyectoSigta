@@ -1,0 +1,28 @@
+<div class="container">
+    <h2>Agregar una Competencia</h2>
+    <div class="row ">
+        <form class="formulario"  [formGroup]="addCompetenciaForm" (ngSubmit)="crearCompetencia()">
+            <div class="mb-3 ">
+                <label class="form-label">Nombre de la Competencia</label>
+                <input type="text" class="form-control"formControlName="nombre_de_competencia" >
+                <span [hidden]="addCompetenciaForm.pristine">
+                    <div *ngIf="addCompetenciaForm.controls['nombre_de_competencia'].errors && addCompetenciaForm.controls['nombre_de_competencia'].hasError('required')"
+                        class="alert alert-danger mt-1" role="alert">
+                        Ingrese una competencia
+                    </div>
+                </span>
+            </div>
+            <div class="mb-3">
+                <label  class="form-label">Descripcion </label>
+                <input type="text" class="form-control" formControlName="descripcion">
+                <span [hidden]="addCompetenciaForm.pristine">
+                    <div *ngIf="addCompetenciaForm.controls['descripcion'].errors && addCompetenciaForm.controls['descripcion'].hasError('required')"
+                        class="alert alert-danger mt-1" role="alert">
+                        Ingrese una descripcion sobre la competencia 
+                    </div>
+                </span>
+            </div>
+            <button [disabled]="addCompetenciaForm.invalid"  type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+</div>

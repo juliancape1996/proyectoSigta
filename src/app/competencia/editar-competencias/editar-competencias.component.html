@@ -1,0 +1,29 @@
+
+<div class="container" *ngIf="dataLoaded">
+    <h1>Editar Competencia</h1>
+    <div class="row ">
+        <form class="formulario"  [formGroup]="editarCompetenciaForm" (submit)="actualizarConpetencia()" >
+            <div class="mb-3 ">
+                <label class="form-label">Nombre de la Competencia</label>
+                <input type="text" class="form-control"formControlName="nombre_de_competencia" >
+                <span [hidden]="editarCompetenciaForm.pristine">
+                    <div *ngIf="editarCompetenciaForm.controls['nombre_de_competencia'].errors && editarCompetenciaForm.controls['nombre_de_competencia'].hasError('required')"
+                        class="alert alert-danger mt-1" role="alert">
+                        Ingrese una competencia
+                    </div>
+                </span>
+            </div>
+            <div class="mb-3">
+                <label  class="form-label">Descripcion </label>
+                <input type="text" class="form-control" formControlName="descripcion">
+                <span [hidden]="editarCompetenciaForm.pristine">
+                    <div *ngIf="editarCompetenciaForm.controls['descripcion'].errors && editarCompetenciaForm.controls['descripcion'].hasError('required')"
+                        class="alert alert-danger mt-1" role="alert">
+                        Ingrese una competencia
+                    </div>
+                </span>
+            </div>
+            <button  [disabled]="editarCompetenciaForm.invalid" type="submit" class="btn btn-primary">Actualizar Competencia</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="container">
+    <h2>Agregar un Estudiante</h2>
+    <div class="row ">
+        <form class="formulario" [formGroup]="addEstudianteForm" (ngSubmit)="crearEstudiante()">
+            <div class="mb-3 ">
+                <label class="form-label">Nombre Estudiante</label>
+                <input type="text" class="form-control" formControlName="nombre_estudiante">
+                <span [hidden]="addEstudianteForm.pristine">
+                    <div *ngIf="addEstudianteForm.controls['nombre_estudiante'].errors && addEstudianteForm.controls['nombre_estudiante'].hasError('required')"
+                        class="alert alert-danger mt-1" role="alert">
+                        Ingrese el nombre del estudiante
+                    </div>
+                </span>
+            </div>
+            <label class="form-label">Correo </label>
+            <input type="email" class="form-control" formControlName="correo_electronico">
+            <span [hidden]="addEstudianteForm.pristine">
+                <div *ngIf="addEstudianteForm.controls['correo_electronico'].errors && addEstudianteForm.controls['correo_electronico'].hasError('required')"
+                    class="alert alert-danger mt-1" role="alert">
+                    Ingrese el Correo
+                </div>
+                <div *ngIf="addEstudianteForm.controls['correo_electronico'].errors && addEstudianteForm.controls['correo_electronico'].hasError('email')"
+                    class="alert alert-danger mt-1" role="alert">
+                    El formato del correo es invalido
+                </div>
+            </span>
+            <div class="mb-3">
+                <label class="form-label">Telefono</label>
+                <input type="text" class="form-control" formControlName="telefono">
+                <span [hidden]="addEstudianteForm.pristine">
+                    <div *ngIf="addEstudianteForm.controls['telefono'].errors && addEstudianteForm.controls['telefono'].hasError('required')"
+                        class="alert alert-danger mt-1" role="alert">
+                        Ingrese el Numero de telefono
+                    </div>
+                    <div *ngIf="addEstudianteForm.controls['telefono'].errors && addEstudianteForm.controls['telefono'].hasError('maxlength')"
+                        class="alert alert-danger mt-1" role="alert">
+                        El numero de telefono no puede tener mas de 10 digitos
+                    </div>
+                </span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Direccion</label>
+                <input type="text" class="form-control" formControlName="direccion">
+            </div>
+            <button [disabled]="addEstudianteForm.invalid" type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>

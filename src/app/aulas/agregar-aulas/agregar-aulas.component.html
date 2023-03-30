@@ -1,0 +1,39 @@
+<div class="container">
+    <h2>Agregar una Aula</h2>
+    <div class="row ">
+        <form class="formulario"  [formGroup]="addAulaForm" (ngSubmit)="crearAula()">
+            <div class="mb-3 ">
+                <label class="form-label">Numero de Aula</label>
+                <input type="number" class="form-control"formControlName="numero_de_aula" >
+                <span [hidden]="addAulaForm.pristine">
+                    <div *ngIf="addAulaForm.controls['numero_de_aula'].errors && addAulaForm.controls['numero_de_aula'].hasError('required')"
+                        class="alert alert-danger mt-1" role="alert">
+                        Ingrese el numero del salón
+                    </div>
+                </span>
+            </div>
+            <div class="mb-3">
+                <label  class="form-label">Capacidad </label>
+                <input type="number" class="form-control" formControlName="capacidad">
+                <span [hidden]="addAulaForm.pristine">
+                    <div *ngIf="addAulaForm.controls['capacidad'].errors && addAulaForm.controls['capacidad'].hasError('required')"
+                        class="alert alert-danger mt-1" role="alert">
+                        Ingrese la capacidad de estudiantes del salón
+                    </div>
+                </span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Ubicacion</label>
+                <input type="text" class="form-control" formControlName="ubicacion">
+                <span [hidden]="addAulaForm.pristine">
+                    <div *ngIf="addAulaForm.controls['ubicacion'].errors && addAulaForm.controls['ubicacion'].hasError('required')"
+                        class="alert alert-danger mt-1" role="alert">
+                        Ingrese la hubicacion del salón
+                    </div>
+                </span>
+            </div>
+
+            <button [disabled]="addAulaForm.invalid"  type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+</div>

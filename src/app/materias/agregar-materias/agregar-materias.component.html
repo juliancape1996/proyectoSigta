@@ -1,0 +1,29 @@
+<div class="container">
+    <h2>Agregar una Materia</h2>
+    <div class="row ">
+        <form class="formulario" [formGroup]="addMateriaForm" (ngSubmit)="crearMateria()">
+            <div class="mb-3 ">
+                <label class="form-label">Nombre de la Materia</label>
+                <input type="text" class="form-control" formControlName="nombre_de_materia">
+                <span [hidden]="addMateriaForm.pristine">
+                    <div *ngIf="addMateriaForm.controls['nombre_de_materia'].errors && addMateriaForm.controls['nombre_de_materia'].hasError('required')"
+                        class="alert alert-danger mt-1" role="alert">
+                        Ingrese el Nombre de la materia
+                    </div>
+                </span>
+            </div>
+            <div class="mb-3">
+
+                <label class="form-label">Descripcion </label>
+                <input type="text" class="form-control" formControlName="descripcion">
+                <span [hidden]="addMateriaForm.pristine">
+                    <div *ngIf="addMateriaForm.controls['descripcion'].errors && addMateriaForm.controls['descripcion'].hasError('required')"
+                        class="alert alert-danger mt-1" role="alert">
+                        Ingrese una descripcion de la materia
+                    </div>
+                </span>
+            </div>
+            <button [disabled]="addMateriaForm.invalid" type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+</div>
